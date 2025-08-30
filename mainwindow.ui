@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>674</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Szachy</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="timersContainer" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLCDNumber" name="timerTop">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>10000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>17</width>
+           <height>479</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="timerBot">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>10000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="BoardDisplay" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>500</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>10000</width>
+        <height>10000</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>760</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuGra">
+    <property name="title">
+     <string>Gra</string>
+    </property>
+    <addaction name="actionNewGame"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Ustawienia</string>
+    </property>
+    <widget class="QMenu" name="menuGameMode">
+     <property name="title">
+      <string>Tryb gry</string>
+     </property>
+     <addaction name="actionChess"/>
+     <addaction name="actionCheckers"/>
+     <addaction name="actionSpecjalMode"/>
+    </widget>
+    <widget class="QMenu" name="menuClock">
+     <property name="title">
+      <string>Zegar</string>
+     </property>
+     <addaction name="action5_1"/>
+     <addaction name="action10_0"/>
+     <addaction name="action10_5"/>
+     <addaction name="action15_0"/>
+     <addaction name="action15_5"/>
+     <addaction name="action30_0"/>
+     <addaction name="actionNoTimer"/>
+    </widget>
+    <widget class="QMenu" name="menuRotation">
+     <property name="title">
+      <string>Obrót planszy</string>
+     </property>
+     <addaction name="actionRotationWhite"/>
+     <addaction name="actionRotationBlack"/>
+     <addaction name="actionRotationMoving"/>
+    </widget>
+    <widget class="QMenu" name="menuAutoMoves">
+     <property name="title">
+      <string>Symulowany przeciwnik</string>
+     </property>
+     <widget class="QMenu" name="menuAutoColor">
+      <property name="title">
+       <string>Kolor</string>
+      </property>
+      <addaction name="actionAutoWhite"/>
+      <addaction name="actionAutoBlack"/>
+     </widget>
+     <addaction name="actionAutoActive"/>
+     <addaction name="menuAutoColor"/>
+    </widget>
+    <addaction name="menuGameMode"/>
+    <addaction name="menuClock"/>
+    <addaction name="actionRules"/>
+    <addaction name="menuAutoMoves"/>
+    <addaction name="menuRotation"/>
+   </widget>
+   <addaction name="menuGra"/>
+   <addaction name="menuSettings"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionObracanie_planszy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Obracanie planszy</string>
+   </property>
+  </action>
+  <action name="action5_0">
+   <property name="text">
+    <string>5+1</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>10+5</string>
+   </property>
+  </action>
+  <action name="action10">
+   <property name="text">
+    <string>10+0</string>
+   </property>
+  </action>
+  <action name="action15_">
+   <property name="text">
+    <string>15+0</string>
+   </property>
+  </action>
+  <action name="action15_2">
+   <property name="text">
+    <string>15+5</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>30+0</string>
+   </property>
+  </action>
+  <action name="actionNoTime">
+   <property name="text">
+    <string>wyłączony</string>
+   </property>
+  </action>
+  <action name="actionSzachy">
+   <property name="text">
+    <string>Szachy</string>
+   </property>
+  </action>
+  <action name="actionWarcaby">
+   <property name="text">
+    <string>Warcaby</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Zamknij</string>
+   </property>
+  </action>
+  <action name="actionWarcaby_2">
+   <property name="text">
+    <string>Warcaby</string>
+   </property>
+  </action>
+  <action name="actionw_cz">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Aktywny</string>
+   </property>
+  </action>
+  <action name="actionCzarne">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Czarne</string>
+   </property>
+  </action>
+  <action name="actionBia_e">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Białe</string>
+   </property>
+  </action>
+  <action name="actionChess">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Szachy</string>
+   </property>
+  </action>
+  <action name="actionCheckers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Warcaby</string>
+   </property>
+  </action>
+  <action name="actionSpecjalMode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Tryb specjalny</string>
+   </property>
+  </action>
+  <action name="actionNewGame">
+   <property name="text">
+    <string>Nowa gra</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionRules">
+   <property name="text">
+    <string>Zasady</string>
+   </property>
+  </action>
+  <action name="action10_0">
+   <property name="text">
+    <string>10+0</string>
+   </property>
+  </action>
+  <action name="action10_5">
+   <property name="text">
+    <string>10+5</string>
+   </property>
+  </action>
+  <action name="action15_0">
+   <property name="text">
+    <string>15+0</string>
+   </property>
+  </action>
+  <action name="action15_5">
+   <property name="text">
+    <string>15+5</string>
+   </property>
+  </action>
+  <action name="action30_0">
+   <property name="text">
+    <string>30+0</string>
+   </property>
+  </action>
+  <action name="action5_1">
+   <property name="text">
+    <string>5+1</string>
+   </property>
+  </action>
+  <action name="actionNoTimer">
+   <property name="text">
+    <string>brak zegara</string>
+   </property>
+  </action>
+  <action name="actionRotationWhite">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Białe na dole</string>
+   </property>
+  </action>
+  <action name="actionRotationBlack">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Czarne na dole</string>
+   </property>
+  </action>
+  <action name="actionRotationMoving">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Ruszający się na dole</string>
+   </property>
+  </action>
+  <action name="actionAutoActive">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Aktywny</string>
+   </property>
+  </action>
+  <action name="actionAutoWhite">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Biały</string>
+   </property>
+  </action>
+  <action name="actionAutoBlack">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Czarny</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Cofnij</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Ponów</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BoardDisplay</class>
+   <extends>QWidget</extends>
+   <header>boarddisplay.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
